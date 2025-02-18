@@ -25,7 +25,7 @@ You can run this project directly in this online Swift compiler:
 3. Paste into the online compiler
 4. Click "Run" to execute the code
 
-Note: This online compiler supports all features required for this project including Swift concurrency.
+Note: The online compiler supports all features required for this project including Swift concurrency.
 
 ## Usage
 
@@ -83,12 +83,19 @@ The system includes comprehensive tests for:
 
 Run tests using the `test` command in the CLI.
 
-## Architecture
+## Project Structure
 
-The system is built using several key components:
+### Single File Implementation
+The entire project is intentionally contained in a single `main.swift` file to facilitate easy testing and execution in online compilers. In a production environment, this would typically be structured across multiple files for better organization:
 
-- `ParkingLot`: Main coordinator managing floors and vehicles
-- `Floor`: Manages spots on individual floors
-- `ParkingSpot`: Individual parking spot management
-- `Vehicle`: Vehicle data model
-- `ParkingLotCLI`: Command-line interface handler
+- `Models/` - Vehicle, ParkingSpot classes
+- `Core/` - ParkingLot, Floor management
+- `CLI/` - Command line interface
+- `Tests/` - Test suites
+- `Errors/` - Custom error types
+- `Utils/` - Utility functions
+
+The current single-file approach was chosen to:
+1. Enable quick testing in online environments
+2. Provide a straightforward way to share and test the code
+3. Ensure consistent behavior across different platforms
